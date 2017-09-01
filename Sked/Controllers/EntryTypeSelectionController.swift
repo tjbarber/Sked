@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EntryTypeSelectionController.swift
 //  Sked
 //
 //  Created by TJ Barber on 8/31/17.
@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EntryTypeSelectionController: UIViewController {
 
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +25,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
