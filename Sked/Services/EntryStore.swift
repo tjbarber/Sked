@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class EntryStore {
     let viewContext = CoreDataContainer.sharedInstance.persistantContainer.viewContext
@@ -18,6 +19,13 @@ class EntryStore {
             } catch (let error) {
                 completion(error)
             }
+        }
+    }
+    
+    func delete(_ entry: NSManagedObject, completion: @escaping (Error?) -> Void) {
+        self.viewContext.delete(entry)
+        self.save { error in
+            completion(error)
         }
     }
 }

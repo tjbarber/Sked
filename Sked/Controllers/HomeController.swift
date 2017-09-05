@@ -48,6 +48,27 @@ extension HomeController: UITableViewDataSource {
         cell.configure(reminder)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let reminder = self.dataSource[indexPath.row]
+            ReminderStore.sharedInstance.delete(reminder) { [unowned self] error in
+                if let error = error {
+                    AlertHelper.showAlert(withTitle: "Error", withMessage: error.localizedDescription, presentingViewController: self)
+                    return
+                }
+                
+                self.dataSource.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                if self.dataSource.isEmpty {
+                    self.tableView.isHidden = true
+                    self.animateEmptyView()
+                }
+            }
+        case .insert, .none: break;
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -56,12 +77,18 @@ extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96.0
     }
+    
+    
 }
 
 // MARK: - Animation Methods
 
 extension HomeController {
     func animateEmptyView() {
+        self.shrugLabel.alpha = 0.0
+        self.emptyMessageLabel.alpha = 0.0
+        self.emptyMessageActionLabel.alpha = 0.0
+        
         UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseInOut, animations: {
             self.shrugLabel.alpha = 1.0
             self.emptyMessageLabel.alpha = 1.0
