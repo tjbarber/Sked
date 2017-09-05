@@ -13,7 +13,15 @@
 		AC1C976D1F5883060095EF3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1C976B1F5883060095EF3F /* LaunchScreen.storyboard */; };
 		AC1C97781F5883060095EF3F /* SkedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97771F5883060095EF3F /* SkedTests.swift */; };
 		AC1C978B1F58B3CE0095EF3F /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978A1F58B3CE0095EF3F /* HomeController.swift */; };
-		AC1C978F1F58C7C00095EF3F /* EntryTypeSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978E1F58C7C00095EF3F /* EntryTypeSelectionController.swift */; };
+		AC1C978F1F58C7C00095EF3F /* AddReminderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */; };
+		AC1C97911F5F2A7E0095EF3F /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */; };
+		AC1C97941F5F2AD20095EF3F /* Sked.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97921F5F2AD20095EF3F /* Sked.xcdatamodeld */; };
+		AC1C97971F5F2BE90095EF3F /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97951F5F2BE90095EF3F /* Reminder+CoreDataClass.swift */; };
+		AC1C97981F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97961F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift */; };
+		AC1C979A1F5F3FBC0095EF3F /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97991F5F3FBC0095EF3F /* AlertHelper.swift */; };
+		AC1C979C1F5F42E00095EF3F /* EntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979B1F5F42E00095EF3F /* EntryStore.swift */; };
+		AC1C979E1F5F43420095EF3F /* ReminderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979D1F5F43420095EF3F /* ReminderStore.swift */; };
+		AC1C97A01F5F47B00095EF3F /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +45,15 @@
 		AC1C97771F5883060095EF3F /* SkedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkedTests.swift; sourceTree = "<group>"; };
 		AC1C97791F5883060095EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC1C978A1F58B3CE0095EF3F /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = Controllers/HomeController.swift; sourceTree = "<group>"; };
-		AC1C978E1F58C7C00095EF3F /* EntryTypeSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryTypeSelectionController.swift; path = Controllers/EntryTypeSelectionController.swift; sourceTree = "<group>"; };
+		AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderController.swift; path = Controllers/AddReminderController.swift; sourceTree = "<group>"; };
+		AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataContainer.swift; path = Services/CoreDataContainer.swift; sourceTree = "<group>"; };
+		AC1C97931F5F2AD20095EF3F /* Sked.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sked.xcdatamodel; sourceTree = "<group>"; };
+		AC1C97951F5F2BE90095EF3F /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Reminder+CoreDataClass.swift"; path = "Models/Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC1C97961F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Reminder+CoreDataProperties.swift"; path = "Models/Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC1C97991F5F3FBC0095EF3F /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHelper.swift; path = Helpers/AlertHelper.swift; sourceTree = "<group>"; };
+		AC1C979B1F5F42E00095EF3F /* EntryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryStore.swift; path = Services/EntryStore.swift; sourceTree = "<group>"; };
+		AC1C979D1F5F43420095EF3F /* ReminderStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderStore.swift; path = Services/ReminderStore.swift; sourceTree = "<group>"; };
+		AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderCell.swift; path = Views/ReminderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +104,7 @@
 				AC1C97691F5883060095EF3F /* Assets.xcassets */,
 				AC1C97621F5883060095EF3F /* AppDelegate.swift */,
 				AC1C976E1F5883060095EF3F /* Info.plist */,
+				AC1C97921F5F2AD20095EF3F /* Sked.xcdatamodeld */,
 			);
 			path = Sked;
 			sourceTree = "<group>";
@@ -104,6 +121,8 @@
 		AC1C97821F58B3130095EF3F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC1C97951F5F2BE90095EF3F /* Reminder+CoreDataClass.swift */,
+				AC1C97961F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -111,6 +130,7 @@
 		AC1C97831F58B31A0095EF3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -119,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1C978A1F58B3CE0095EF3F /* HomeController.swift */,
-				AC1C978E1F58C7C00095EF3F /* EntryTypeSelectionController.swift */,
+				AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -127,6 +147,7 @@
 		AC1C97851F58B3280095EF3F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AC1C97991F5F3FBC0095EF3F /* AlertHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -134,6 +155,9 @@
 		AC1C97861F58B32E0095EF3F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */,
+				AC1C979B1F5F42E00095EF3F /* EntryStore.swift */,
+				AC1C979D1F5F43420095EF3F /* ReminderStore.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -252,9 +276,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1C978F1F58C7C00095EF3F /* EntryTypeSelectionController.swift in Sources */,
+				AC1C978F1F58C7C00095EF3F /* AddReminderController.swift in Sources */,
+				AC1C979C1F5F42E00095EF3F /* EntryStore.swift in Sources */,
+				AC1C97941F5F2AD20095EF3F /* Sked.xcdatamodeld in Sources */,
+				AC1C97A01F5F47B00095EF3F /* ReminderCell.swift in Sources */,
+				AC1C97911F5F2A7E0095EF3F /* CoreDataContainer.swift in Sources */,
+				AC1C97971F5F2BE90095EF3F /* Reminder+CoreDataClass.swift in Sources */,
+				AC1C979A1F5F3FBC0095EF3F /* AlertHelper.swift in Sources */,
+				AC1C97981F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift in Sources */,
 				AC1C978B1F58B3CE0095EF3F /* HomeController.swift in Sources */,
 				AC1C97631F5883060095EF3F /* AppDelegate.swift in Sources */,
+				AC1C979E1F5F43420095EF3F /* ReminderStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +506,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC1C97921F5F2AD20095EF3F /* Sked.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC1C97931F5F2AD20095EF3F /* Sked.xcdatamodel */,
+			);
+			currentVersion = AC1C97931F5F2AD20095EF3F /* Sked.xcdatamodel */;
+			path = Sked.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC1C97571F5883060095EF3F /* Project object */;
 }
