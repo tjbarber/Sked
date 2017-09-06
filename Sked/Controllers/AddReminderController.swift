@@ -44,6 +44,10 @@ class AddReminderController: UIViewController {
         }
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.dismissKeyboard(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let navigationBar = UINavigationBar.appearance()

@@ -12,6 +12,10 @@ class ReminderCell: UITableViewCell {
 
     static let identifier = "reminderCell"
     
+    @IBOutlet weak var reminderEntryLabel: UILabel!
+    @IBOutlet weak var reminderLocationLabel: UILabel!
+    @IBOutlet weak var reminderTimeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,9 +26,12 @@ class ReminderCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
     
     func configure(_ reminder: Reminder) {
+        self.reminderEntryLabel.text    = nil
+        self.reminderLocationLabel.text = nil
+        self.reminderTimeLabel.text     = nil
         
+        self.reminderEntryLabel.text = reminder.entry
     }
 }

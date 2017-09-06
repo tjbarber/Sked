@@ -84,7 +84,7 @@ to get started!</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKY-kk-TLa" id="rjn-AI-I37">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ujs-uX-u9r">
@@ -95,7 +95,7 @@ to get started!</string>
                                                         <constraint firstAttribute="width" constant="42" id="brf-6N-MkT"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="{{ REMINDER }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0A-bM-L57">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="{{ REMINDER }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="q0A-bM-L57">
                                                     <rect key="frame" x="72" y="27" width="223" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.911376953125" green="0.911376953125" blue="0.911376953125" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,7 +107,7 @@ to get started!</string>
                                                     <color key="textColor" red="0.57980442188404213" green="0.59011861382541331" blue="0.5969032118055555" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAG-oL-sFA">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAG-oL-sFA">
                                                     <rect key="frame" x="311" y="27" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.58525859374999989" green="0.59617719868977859" blue="0.60335937499999992" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,6 +128,11 @@ to get started!</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="reminderEntryLabel" destination="q0A-bM-L57" id="QJW-fi-VIv"/>
+                                            <outlet property="reminderLocationLabel" destination="JCg-hP-3B3" id="6wT-iF-zfV"/>
+                                            <outlet property="reminderTimeLabel" destination="xAG-oL-sFA" id="EG5-ma-tel"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -290,11 +295,15 @@ to get started!</string>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5TP-PR-4gU" firstAttribute="top" secondItem="q8m-wo-pO8" secondAttribute="bottom" constant="44" id="5kA-xb-gg7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5TP-PR-4gU" secondAttribute="trailing" constant="16" id="AN4-aJ-67H"/>
                             <constraint firstItem="5TP-PR-4gU" firstAttribute="leading" secondItem="v8K-55-Fud" secondAttribute="leadingMargin" constant="16" id="mm8-Qr-3HK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cjh-C5-2gz" appends="YES" id="lKS-W2-Hc9"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="ADD REMINDER" id="ErH-jh-SmL">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="htM-cf-cs1">
@@ -309,6 +318,7 @@ to get started!</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhC-Tv-ksr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cjh-C5-2gz"/>
             </objects>
             <point key="canvasLocation" x="1785" y="690"/>
         </scene>

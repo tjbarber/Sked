@@ -48,10 +48,17 @@ extension HomeController: UITableViewDataSource {
         cell.configure(reminder)
         return cell
     }
+}
+
+// MARK: - UITableViewDelegate
+
+extension HomeController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96.0
+    }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let completeButton = UITableViewRowAction(style: .default, title: "Complete") { [unowned self] action, indexPath in
             let reminder = self.dataSource[indexPath.row]
             ReminderStore.sharedInstance.delete(reminder) { [unowned self] error in
                 if let error = error {
@@ -66,19 +73,12 @@ extension HomeController: UITableViewDataSource {
                     self.animateEmptyView()
                 }
             }
-        case .insert, .none: break;
         }
+        
+        completeButton.backgroundColor = UIColor(red: 66.0 / 255.0, green: 244.0 / 255.0, blue: 80.0 / 255.0, alpha: 1.0)
+        
+        return [completeButton]
     }
-}
-
-// MARK: - UITableViewDelegate
-
-extension HomeController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96.0
-    }
-    
-    
 }
 
 // MARK: - Animation Methods
