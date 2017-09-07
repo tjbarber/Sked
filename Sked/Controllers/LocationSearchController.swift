@@ -36,6 +36,12 @@ class LocationSearchController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    deinit {
+        // This is here because of a bug in UISearchController where if this isn't added we get the following warning in the console:
+        // Attempting to load the view of a view controller while it is deallocating is not allowed and may result in undefined behavior (<UISearchController: 0x154d39700>)
+        self.searchController.view.removeFromSuperview()
+    }
 
     @IBAction func closeLocationSearch(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -82,9 +88,12 @@ extension LocationSearchController {
 extension LocationSearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mapItem = self.dataSource[indexPath.row]
-        guard let reminder = self.reminder else {
-            fatalError("How did you get here without a reminder?")
-        }
+        // This is not the Navigation Controller we see, this is the main one
+        let presentingNavigationController = self.presentingViewController as! UINavigationController
+        
+        // This is the AddReminderController
+        let addReminderController = presentingNavigationController.topViewController as! AddReminderController
+        addReminderController.selectedLocation = mapItem.placemark.location
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -123,13 +132,13 @@ extension LocationSearchController {
                 }
                 
                 if let response = response {
-                    var placemarks = [MKMapItem]()
-                    for placemark in response.mapItems {
-                        placemarks.append(placemark)
+                    var mapItems = [MKMapItem]()
+                    for mapItem in response.mapItems {
+                        mapItems.append(mapItem)
                     }
                     
                     DispatchQueue.main.async {
-                        self.dataSource = placemarks
+                        self.dataSource = mapItems
                         self.tableView.reloadData()
                     }
                 }

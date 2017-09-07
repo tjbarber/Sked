@@ -12,10 +12,15 @@ import EventKit
 class AddReminderController: UIViewController {
     
     var reminder: Reminder?
+    var selectedLocation: CLLocation?
     
     @IBOutlet weak var reminderEntryTextField: UITextField!
     
     @IBAction func save(_ sender: Any) {
+        if self.reminder == nil {
+            self.reminder = Reminder(context: CoreDataContainer.sharedInstance.persistantContainer.viewContext)
+        }
+        
         guard let reminder = self.reminder else {
             fatalError("Got to save method with no reminder object in memory.")
         }
@@ -31,14 +36,12 @@ class AddReminderController: UIViewController {
             }
             reminder.entry = reminderEntry
         }
-        
+
         ReminderStore.sharedInstance.save { error in
             if let error = error {
                 AlertHelper.showAlert(withTitle: "Error", withMessage: error.localizedDescription, presentingViewController: self)
                 return
             }
-            
-            
             
             self.dismiss(animated: true, completion: nil)
         }
@@ -48,15 +51,23 @@ class AddReminderController: UIViewController {
         super.viewDidLoad()
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
-        
-        if self.reminder == nil {
-            self.reminder = Reminder(context: CoreDataContainer.sharedInstance.persistantContainer.viewContext)
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "addLocationSegue":
+                let navigationController = segue.destination as! UINavigationController
+                let locationSearchController = navigationController.topViewController as! LocationSearchController
+                locationSearchController.reminder = self.reminder
+            default: break
+            }
+        }
     }
 
     @IBAction func closeAddReminder(_ sender: Any) {

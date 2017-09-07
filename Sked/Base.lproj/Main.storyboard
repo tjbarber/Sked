@@ -326,7 +326,7 @@ to get started!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhC-Tv-ksr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8fa-pz-rrN">
                     <connections>
-                        <segue destination="Wlj-xl-gZC" kind="showDetail" id="sxZ-7w-rbf"/>
+                        <segue destination="Wlj-xl-gZC" kind="showDetail" identifier="addLocationSegue" id="sxZ-7w-rbf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
