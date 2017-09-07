@@ -12,6 +12,10 @@ class HomeController: UIViewController {
 
     var dataSource = [Reminder]()
     
+    // Added the location manager here so the service can go ahead
+    // and start looking for a location
+    let locationManager  = LocationService.sharedInstance
+    
     @IBOutlet weak var shrugLabel: UILabel!
     @IBOutlet weak var emptyMessageLabel: UILabel!
     @IBOutlet weak var emptyMessageActionLabel: UILabel!

@@ -22,6 +22,9 @@
 		AC1C979C1F5F42E00095EF3F /* EntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979B1F5F42E00095EF3F /* EntryStore.swift */; };
 		AC1C979E1F5F43420095EF3F /* ReminderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979D1F5F43420095EF3F /* ReminderStore.swift */; };
 		AC1C97A01F5F47B00095EF3F /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */; };
+		AC3A1CE61F60744900041355 /* LocationSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A1CE51F60744900041355 /* LocationSearchController.swift */; };
+		AC3A1CE81F6078E100041355 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A1CE71F6078E000041355 /* LocationService.swift */; };
+		AC3A1CEA1F61CC0400041355 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A1CE91F61CC0400041355 /* LocationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		AC1C979B1F5F42E00095EF3F /* EntryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryStore.swift; path = Services/EntryStore.swift; sourceTree = "<group>"; };
 		AC1C979D1F5F43420095EF3F /* ReminderStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderStore.swift; path = Services/ReminderStore.swift; sourceTree = "<group>"; };
 		AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderCell.swift; path = Views/ReminderCell.swift; sourceTree = "<group>"; };
+		AC3A1CE51F60744900041355 /* LocationSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchController.swift; path = Controllers/LocationSearchController.swift; sourceTree = "<group>"; };
+		AC3A1CE71F6078E000041355 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
+		AC3A1CE91F61CC0400041355 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCell.swift; path = Views/LocationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1C979F1F5F47B00095EF3F /* ReminderCell.swift */,
+				AC3A1CE91F61CC0400041355 /* LocationCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 			children = (
 				AC1C978A1F58B3CE0095EF3F /* HomeController.swift */,
 				AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */,
+				AC3A1CE51F60744900041355 /* LocationSearchController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */,
 				AC1C979B1F5F42E00095EF3F /* EntryStore.swift */,
 				AC1C979D1F5F43420095EF3F /* ReminderStore.swift */,
+				AC3A1CE71F6078E000041355 /* LocationService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -280,10 +289,13 @@
 				AC1C979C1F5F42E00095EF3F /* EntryStore.swift in Sources */,
 				AC1C97941F5F2AD20095EF3F /* Sked.xcdatamodeld in Sources */,
 				AC1C97A01F5F47B00095EF3F /* ReminderCell.swift in Sources */,
+				AC3A1CEA1F61CC0400041355 /* LocationCell.swift in Sources */,
 				AC1C97911F5F2A7E0095EF3F /* CoreDataContainer.swift in Sources */,
 				AC1C97971F5F2BE90095EF3F /* Reminder+CoreDataClass.swift in Sources */,
 				AC1C979A1F5F3FBC0095EF3F /* AlertHelper.swift in Sources */,
 				AC1C97981F5F2BE90095EF3F /* Reminder+CoreDataProperties.swift in Sources */,
+				AC3A1CE61F60744900041355 /* LocationSearchController.swift in Sources */,
+				AC3A1CE81F6078E100041355 /* LocationService.swift in Sources */,
 				AC1C978B1F58B3CE0095EF3F /* HomeController.swift in Sources */,
 				AC1C97631F5883060095EF3F /* AppDelegate.swift in Sources */,
 				AC1C979E1F5F43420095EF3F /* ReminderStore.swift in Sources */,
@@ -496,6 +508,7 @@
 				AC1C977E1F5883060095EF3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC1C977F1F5883060095EF3F /* Build configuration list for PBXNativeTarget "SkedTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +517,7 @@
 				AC1C97811F5883060095EF3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

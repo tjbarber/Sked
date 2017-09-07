@@ -28,11 +28,13 @@ class AddReminderController: UIViewController {
             reminder.createdAt = NSDate()
         }
         
-        guard let reminderEntry = reminderEntryTextField.text else {
-            AlertHelper.showAlert(withTitle: "No reminder description!", withMessage: "We need to know what we're reminding you of.", presentingViewController: self)
-            return
+        if let reminderEntry = reminderEntryTextField.text {
+            if reminderEntry.isEmpty {
+                AlertHelper.showAlert(withTitle: "No reminder description!", withMessage: "We need to know what we're reminding you of.", presentingViewController: self)
+                return
+            }
+            reminder.entry = reminderEntry
         }
-        reminder.entry = reminderEntry
         
         ReminderStore.sharedInstance.save { error in
             if let error = error {
@@ -42,10 +44,6 @@ class AddReminderController: UIViewController {
             
             self.dismiss(animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        self.dismissKeyboard(self)
     }
     
     override func viewDidLoad() {
@@ -59,4 +57,7 @@ class AddReminderController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func closeAddReminder(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
