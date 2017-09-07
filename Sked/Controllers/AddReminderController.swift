@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class AddReminderController: UIViewController {
     
@@ -15,11 +16,6 @@ class AddReminderController: UIViewController {
     @IBOutlet weak var reminderEntryTextField: UITextField!
     
     @IBAction func save(_ sender: Any) {
-        
-        if self.reminder == nil {
-            self.reminder = Reminder(context: CoreDataContainer.sharedInstance.persistantContainer.viewContext)
-        }
-        
         guard let reminder = self.reminder else {
             fatalError("Got to save method with no reminder object in memory.")
         }
@@ -42,6 +38,8 @@ class AddReminderController: UIViewController {
                 return
             }
             
+            
+            
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -50,6 +48,10 @@ class AddReminderController: UIViewController {
         super.viewDidLoad()
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
+        
+        if self.reminder == nil {
+            self.reminder = Reminder(context: CoreDataContainer.sharedInstance.persistantContainer.viewContext)
+        }
     }
 
     override func didReceiveMemoryWarning() {

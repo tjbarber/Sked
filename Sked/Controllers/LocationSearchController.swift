@@ -11,15 +11,16 @@ import MapKit
 import CoreLocation
 
 class LocationSearchController: UITableViewController {
-
+    
+    var reminder: Reminder?
     let searchController = UISearchController(searchResultsController: nil)
     let locationManager  = LocationService.sharedInstance
     var dataSource       = [MKMapItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
         self.definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
         
@@ -76,10 +77,23 @@ extension LocationSearchController {
     }
 }
 
-// MARK: - Search Results Updating
+// MARK: - Table View Delegate
 
-extension LocationSearchController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
+extension LocationSearchController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mapItem = self.dataSource[indexPath.row]
+        guard let reminder = self.reminder else {
+            fatalError("How did you get here without a reminder?")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - Search Bar Updating
+
+extension LocationSearchController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         getMapResults()
     }
 }
