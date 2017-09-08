@@ -93,7 +93,7 @@ extension LocationSearchController {
         
         // This is the AddReminderController
         let addReminderController = presentingNavigationController.topViewController as! AddReminderController
-        addReminderController.selectedLocation = mapItem.placemark
+        addReminderController.selectedLocation = mapItem
         
         self.dismiss(animated: true, completion: nil)
     }

@@ -13,7 +13,8 @@ import MapKit
 class AddReminderController: UIViewController {
     
     var reminder: Reminder?
-    var selectedLocation: MKPlacemark?
+    var selectedLocation: MKMapItem?
+    let eventStore = EKEventStore()
     
     @IBOutlet weak var reminderEntryTextField: UITextField!
     @IBOutlet weak var reminderLocationTextLabel: UILabel!
@@ -40,16 +41,32 @@ class AddReminderController: UIViewController {
             reminder.entry = reminderEntry
         }
         
-        reminder.location = selectedLocation
+        if let selectedLocation = selectedLocation {
+            reminder.location = selectedLocation.placemark
+        }
         
         if let reminderNote = reminderNotesTextField.text {
             reminder.notes = reminderNote
         }
 
-        ReminderStore.sharedInstance.save { error in
+        ReminderStore.sharedInstance.save { [unowned self] error in
             if let error = error {
                 AlertHelper.showAlert(withTitle: "Error", withMessage: error.localizedDescription, presentingViewController: self)
                 return
+            }
+            
+            if let selectedLocation = self.selectedLocation {
+                let calendarReminder = EKReminder(eventStore: self.eventStore)
+                
+                if let entry = reminder.entry {
+                    calendarReminder.title = entry
+                }
+                
+                calendarReminder.notes = reminder.notes
+                let alarm = EKAlarm(relativeOffset: 0)
+                let locationGeofence = EKStructuredLocation(mapItem: selectedLocation)
+                alarm.structuredLocation = locationGeofence
+                calendarReminder.addAlarm(alarm)
             }
             
             self.dismiss(animated: true, completion: nil)
@@ -64,7 +81,7 @@ class AddReminderController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let location = self.selectedLocation else { return }
+        guard let location = self.selectedLocation?.placemark else { return }
         
         if let street = location.thoroughfare,
             let city = location.locality,
