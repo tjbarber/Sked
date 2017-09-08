@@ -8,13 +8,16 @@
 
 import UIKit
 import EventKit
+import MapKit
 
 class AddReminderController: UIViewController {
     
     var reminder: Reminder?
-    var selectedLocation: CLLocation?
+    var selectedLocation: MKPlacemark?
     
     @IBOutlet weak var reminderEntryTextField: UITextField!
+    @IBOutlet weak var reminderLocationTextLabel: UILabel!
+    @IBOutlet weak var reminderNotesTextField: UITextField!
     
     @IBAction func save(_ sender: Any) {
         if self.reminder == nil {
@@ -36,6 +39,12 @@ class AddReminderController: UIViewController {
             }
             reminder.entry = reminderEntry
         }
+        
+        reminder.location = selectedLocation
+        
+        if let reminderNote = reminderNotesTextField.text {
+            reminder.notes = reminderNote
+        }
 
         ReminderStore.sharedInstance.save { error in
             if let error = error {
@@ -51,6 +60,17 @@ class AddReminderController: UIViewController {
         super.viewDidLoad()
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let location = self.selectedLocation else { return }
+        
+        if let street = location.thoroughfare,
+            let city = location.locality,
+            let state = location.administrativeArea {
+            self.reminderLocationTextLabel.text = "\(street), \(city), \(state)"
+        }
     }
 
     override func didReceiveMemoryWarning() {

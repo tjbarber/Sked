@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class ReminderCell: UITableViewCell {
 
@@ -33,5 +35,12 @@ class ReminderCell: UITableViewCell {
         self.reminderTimeLabel.text     = nil
         
         self.reminderEntryLabel.text = reminder.entry
+        let location = reminder.location as! MKPlacemark
+        
+        if let street = location.thoroughfare,
+            let city = location.locality,
+            let state = location.administrativeArea {
+            self.reminderLocationLabel.text = "\(street), \(city), \(state)"
+        }
     }
 }

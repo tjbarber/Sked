@@ -2,7 +2,7 @@
 //  Reminder+CoreDataProperties.swift
 //  Sked
 //
-//  Created by TJ Barber on 9/5/17.
+//  Created by TJ Barber on 9/8/17.
 //  Copyright © 2017 Novel. All rights reserved.
 //
 
@@ -16,7 +16,9 @@ extension Reminder {
         return NSFetchRequest<Reminder>(entityName: "Reminder")
     }
 
-    @NSManaged public var entry: String?
     @NSManaged public var createdAt: NSDate?
+    @NSManaged public var entry: String?
+    @NSManaged public var location: NSObject?
+    @NSManaged public var notes: String?
 
 }
