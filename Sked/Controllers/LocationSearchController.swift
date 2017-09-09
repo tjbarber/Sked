@@ -92,8 +92,9 @@ extension LocationSearchController {
         let presentingNavigationController = self.presentingViewController as! UINavigationController
         
         // This is the AddReminderController
-        let addReminderController = presentingNavigationController.topViewController as! AddReminderController
-        addReminderController.selectedLocation = mapItem
+        let reminderEntryController = presentingNavigationController.topViewController as! ReminderEntryController
+        reminderEntryController.selectedMapItem = mapItem
+        reminderEntryController.selectedPlacemark = mapItem.placemark
         
         self.dismiss(animated: true, completion: nil)
     }

@@ -84,7 +84,7 @@ to get started!</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKY-kk-TLa" id="rjn-AI-I37">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Ujs-uX-u9r">
@@ -161,6 +161,7 @@ to get started!</string>
                         <outlet property="emptyMessageLabel" destination="giH-Ci-VQm" id="qxK-os-rna"/>
                         <outlet property="shrugLabel" destination="55G-ak-4PV" id="AbR-GC-pQG"/>
                         <outlet property="tableView" destination="8P6-EV-lYg" id="C7l-ob-vvu"/>
+                        <segue destination="pPS-z9-u6f" kind="show" identifier="editReminderSegue" id="DoV-qN-rdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,7 +171,7 @@ to get started!</string>
         <!--ADD REMINDER-->
         <scene sceneID="Ea9-mD-kWz">
             <objects>
-                <viewController id="pPS-z9-u6f" customClass="AddReminderController" customModule="Sked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pPS-z9-u6f" customClass="ReminderEntryController" customModule="Sked" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q8m-wo-pO8"/>
                         <viewControllerLayoutGuide type="bottom" id="LfQ-Hi-bhA"/>
@@ -308,17 +309,18 @@ to get started!</string>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4C3-ar-P3n">
                             <color key="tintColor" red="1" green="0.53333333329999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="closeAddReminder:" destination="pPS-z9-u6f" id="KXF-rV-0ve"/>
+                                <action selector="closeReminderEntry:" destination="pPS-z9-u6f" id="F65-F8-Jgy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="htM-cf-cs1">
                             <color key="tintColor" red="1" green="0.53333333329999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="save:" destination="pPS-z9-u6f" id="tdU-Uc-A9O"/>
+                                <action selector="saveButtonTapped:" destination="pPS-z9-u6f" id="msy-Eq-Wkg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navigationBarTitle" destination="ErH-jh-SmL" id="Zx0-fc-qAb"/>
                         <outlet property="reminderEntryTextField" destination="DP0-6w-9ha" id="Ulp-Kq-aNk"/>
                         <outlet property="reminderLocationTextLabel" destination="zu7-I7-hFB" id="mIU-qH-Gtu"/>
                         <outlet property="reminderNotesTextField" destination="Io1-gr-oRB" id="4DB-7S-oyQ"/>
@@ -348,7 +350,7 @@ to get started!</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IwM-LU-SEf" id="gCZ-Xy-DVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ LOCATION NAME }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG3-tt-y4e">
@@ -466,4 +468,7 @@ to get started!</string>
     <resources>
         <image name="location" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DoV-qN-rdc"/>
+    </inferredMetricsTieBreakers>
 </document>

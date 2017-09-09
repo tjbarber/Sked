@@ -13,7 +13,7 @@
 		AC1C976D1F5883060095EF3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1C976B1F5883060095EF3F /* LaunchScreen.storyboard */; };
 		AC1C97781F5883060095EF3F /* SkedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97771F5883060095EF3F /* SkedTests.swift */; };
 		AC1C978B1F58B3CE0095EF3F /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978A1F58B3CE0095EF3F /* HomeController.swift */; };
-		AC1C978F1F58C7C00095EF3F /* AddReminderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */; };
+		AC1C978F1F58C7C00095EF3F /* ReminderEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C978E1F58C7C00095EF3F /* ReminderEntryController.swift */; };
 		AC1C97911F5F2A7E0095EF3F /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */; };
 		AC1C97941F5F2AD20095EF3F /* Sked.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97921F5F2AD20095EF3F /* Sked.xcdatamodeld */; };
 		AC1C97971F5F2BE90095EF3F /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C97951F5F2BE90095EF3F /* Reminder+CoreDataClass.swift */; };
@@ -48,7 +48,7 @@
 		AC1C97771F5883060095EF3F /* SkedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkedTests.swift; sourceTree = "<group>"; };
 		AC1C97791F5883060095EF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC1C978A1F58B3CE0095EF3F /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = Controllers/HomeController.swift; sourceTree = "<group>"; };
-		AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderController.swift; path = Controllers/AddReminderController.swift; sourceTree = "<group>"; };
+		AC1C978E1F58C7C00095EF3F /* ReminderEntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderEntryController.swift; path = Controllers/ReminderEntryController.swift; sourceTree = "<group>"; };
 		AC1C97901F5F2A7E0095EF3F /* CoreDataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataContainer.swift; path = Services/CoreDataContainer.swift; sourceTree = "<group>"; };
 		AC1C97931F5F2AD20095EF3F /* Sked.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sked.xcdatamodel; sourceTree = "<group>"; };
 		AC1C97951F5F2BE90095EF3F /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Reminder+CoreDataClass.swift"; path = "Models/Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1C978A1F58B3CE0095EF3F /* HomeController.swift */,
-				AC1C978E1F58C7C00095EF3F /* AddReminderController.swift */,
+				AC1C978E1F58C7C00095EF3F /* ReminderEntryController.swift */,
 				AC3A1CE51F60744900041355 /* LocationSearchController.swift */,
 			);
 			name = Controllers;
@@ -285,7 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1C978F1F58C7C00095EF3F /* AddReminderController.swift in Sources */,
+				AC1C978F1F58C7C00095EF3F /* ReminderEntryController.swift in Sources */,
 				AC1C979C1F5F42E00095EF3F /* EntryStore.swift in Sources */,
 				AC1C97941F5F2AD20095EF3F /* Sked.xcdatamodeld in Sources */,
 				AC1C97A01F5F47B00095EF3F /* ReminderCell.swift in Sources */,

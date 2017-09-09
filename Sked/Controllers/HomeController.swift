@@ -11,6 +11,7 @@ import UIKit
 class HomeController: UIViewController {
 
     var dataSource = [Reminder]()
+    var selectedReminder: Reminder?
     
     // Added the location manager here so the service can go ahead
     // and start looking for a location
@@ -37,6 +38,17 @@ class HomeController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "editReminderSegue":
+                let destination = segue.destination as! ReminderEntryController
+                destination.reminder = self.selectedReminder
+                destination.controllerState = .editing
+            default: break
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -51,6 +63,11 @@ extension HomeController: UITableViewDataSource {
         let reminder = self.dataSource[indexPath.row]
         cell.configure(reminder)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedReminder = self.dataSource[indexPath.row]
+        performSegue(withIdentifier: "editReminderSegue", sender: nil)
     }
 }
 
