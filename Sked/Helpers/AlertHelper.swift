@@ -15,4 +15,11 @@ class AlertHelper {
         alertController.addAction(okAction)
         presentingViewController.present(alertController, animated: true, completion: nil)
     }
+    
+    static func showAlert(withTitle title: String, withMessage message: String, presentingViewController: UIViewController, completionHandler: @escaping (UIAlertAction) -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: completionHandler)
+        alertController.addAction(okAction)
+        presentingViewController.present(alertController, animated: true, completion: nil)
+    }
 }

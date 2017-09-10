@@ -24,6 +24,8 @@ class LocationSearchController: UITableViewController {
         self.definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
         
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             if locationManager.currentLocation == nil {
                 waitForLocationLock()
@@ -31,6 +33,11 @@ class LocationSearchController: UITableViewController {
                 getMapResults()
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        checkForLocationPermissions()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +69,23 @@ extension LocationSearchController {
         }
         locationTimer.fire()
     }
+    
+    func checkForLocationPermissions() {
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            AlertHelper.showAlert(withTitle: "Error", withMessage: "You must give us permission to access location services to add a location to your reminder!", presentingViewController: self) { [unowned self] action in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 }
+
+// MARK: - App Delegate Methods
+extension LocationSearchController {
+    func applicationDidBecomeActive() {
+        checkForLocationPermissions()
+    }
+}
+    
 
 // MARK: - Table View Data Source
 

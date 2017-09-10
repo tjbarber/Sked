@@ -40,6 +40,7 @@ class ReminderEntryController: UIViewController {
         super.viewDidLoad()
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
+        setNavigationBarTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,12 +56,6 @@ class ReminderEntryController: UIViewController {
         }
         
         displayLocationString()
-        var navigationBarTitle: String
-        switch self.controllerState {
-        case .editing: navigationBarTitle = "EDIT REMINDER"
-        case .creating: navigationBarTitle = "ADD REMINDER"
-        }
-        self.navigationBarTitle.title = navigationBarTitle
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +66,18 @@ class ReminderEntryController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case "addLocationSegue":
+            if CLLocationManager.authorizationStatus() != .authorizedAlways {
+                AlertHelper.showAlert(withTitle: "Error", withMessage: "You must give us permission to access location services to add a location to your reminder!", presentingViewController: self)
+                return false
+            }
+        default: break
+        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,6 +110,15 @@ extension ReminderEntryController {
                 self.reminderLocationTextLabel.text = "\(street), \(city), \(state)"
             }
         }
+    }
+    
+    func setNavigationBarTitle() {
+        var navigationBarTitle: String
+        switch self.controllerState {
+        case .editing: navigationBarTitle = "EDIT REMINDER"
+        case .creating: navigationBarTitle = "ADD REMINDER"
+        }
+        self.navigationBarTitle.title = navigationBarTitle
     }
 }
 
