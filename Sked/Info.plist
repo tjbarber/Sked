@@ -38,5 +38,7 @@
 	<false/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Sked needs permission to access your device&apos;s location.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Sked needs permission to store and access reminders.</string>
 </dict>
 </plist>

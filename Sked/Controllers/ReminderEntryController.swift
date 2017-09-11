@@ -27,6 +27,7 @@ class ReminderEntryController: UIViewController {
     @IBOutlet weak var reminderLocationTextLabel: UILabel!
     @IBOutlet weak var reminderNotesTextField: UITextField!
     @IBOutlet weak var navigationBarTitle: UINavigationItem!
+    @IBOutlet weak var proximityOptionControl: UISegmentedControl!
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         self.save()
@@ -41,6 +42,18 @@ class ReminderEntryController: UIViewController {
         let navigationBar = UINavigationBar.appearance()
         navigationBar.setTitleVerticalPositionAdjustment(3.0, for: .default)
         setNavigationBarTitle()
+        
+        eventStore.requestAccess(to: .reminder) { [unowned self] granted, error in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            
+            if !granted {
+                AlertHelper.showAlert(withTitle: "Error", withMessage: "Sked must have permission to access reminders!", presentingViewController: self, completionHandler: { action in
+                    self.closeReminderEntry()
+                })
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,16 +176,35 @@ extension ReminderEntryController {
             
             if let selectedMapItem = self.selectedMapItem {
                 let calendarReminder = EKReminder(eventStore: self.eventStore)
+                calendarReminder.calendar = self.eventStore.defaultCalendarForNewReminders()
                 
                 if let entry = reminder.entry {
                     calendarReminder.title = entry
                 }
                 
                 calendarReminder.notes = reminder.notes
-                let alarm = EKAlarm(relativeOffset: 0)
+                calendarReminder.location = selectedMapItem.name
+                
                 let locationGeofence = EKStructuredLocation(mapItem: selectedMapItem)
+                locationGeofence.radius = 0
+                
+                let alarm = EKAlarm(relativeOffset: 0)
                 alarm.structuredLocation = locationGeofence
+                
+                switch self.proximityOptionControl.selectedSegmentIndex {
+                case 0:
+                    alarm.proximity = .enter
+                case 1:
+                    alarm.proximity = .leave
+                default: break
+                }
+                
                 calendarReminder.addAlarm(alarm)
+                do {
+                    try self.eventStore.save(calendarReminder, commit: true)
+                } catch (let e) {
+                    fatalError(e.localizedDescription)
+                }
             }
             
             self.closeReminderEntry()

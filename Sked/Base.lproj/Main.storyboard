@@ -84,7 +84,7 @@ to get started!</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gKY-kk-TLa" id="rjn-AI-I37">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Ujs-uX-u9r">
@@ -181,7 +181,7 @@ to get started!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="5TP-PR-4gU">
-                                <rect key="frame" x="32" y="108" width="311" height="285"/>
+                                <rect key="frame" x="32" y="108" width="311" height="324"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="dkf-K4-bHP">
                                         <rect key="frame" x="0.0" y="0.0" width="311" height="55"/>
@@ -219,47 +219,54 @@ to get started!</string>
                                             <constraint firstAttribute="height" constant="55" id="sfm-eS-fSu"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K21-q3-TZg">
-                                        <rect key="frame" x="0.0" y="115" width="311" height="55"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K21-q3-TZg">
+                                        <rect key="frame" x="0.0" y="115" width="311" height="94"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When I arrive at and leave:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQq-La-WrZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQq-La-WrZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.55093749999999997" green="0.55093749999999997" blue="0.55093749999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" contentMode="left" text="Tap to search for a location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu7-I7-hFB" userLabel="Reminder Location Text">
-                                                <rect key="frame" x="0.0" y="24" width="311" height="30"/>
+                                                <rect key="frame" x="0.0" y="32" width="311" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2O-M7-8Eh">
-                                                <rect key="frame" x="0.0" y="54" width="311" height="1"/>
+                                                <rect key="frame" x="0.0" y="57" width="311" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="bzw-5G-s61"/>
+                                                    <constraint firstAttribute="height" constant="1" id="NXw-dv-RSk"/>
                                                 </constraints>
                                             </view>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ckl-rb-OPt">
+                                                <rect key="frame" x="0.0" y="66" width="311" height="29"/>
+                                                <segments>
+                                                    <segment title="When I Arrive"/>
+                                                    <segment title="When I Leave"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="0.53333333329999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </segmentedControl>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="VQq-La-WrZ" secondAttribute="trailing" id="7et-hM-Ycr"/>
-                                            <constraint firstItem="VQq-La-WrZ" firstAttribute="top" secondItem="K21-q3-TZg" secondAttribute="top" id="GPX-LM-M5N"/>
-                                            <constraint firstAttribute="trailing" secondItem="C2O-M7-8Eh" secondAttribute="trailing" id="J8m-Jf-RUy"/>
-                                            <constraint firstItem="VQq-La-WrZ" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="Tbz-67-xLp"/>
-                                            <constraint firstItem="zu7-I7-hFB" firstAttribute="top" secondItem="VQq-La-WrZ" secondAttribute="bottom" id="Vev-o2-AxO"/>
-                                            <constraint firstItem="C2O-M7-8Eh" firstAttribute="top" secondItem="zu7-I7-hFB" secondAttribute="bottom" id="Y1e-IO-fPo"/>
-                                            <constraint firstAttribute="trailing" secondItem="zu7-I7-hFB" secondAttribute="trailing" id="YaJ-wZ-h5z"/>
-                                            <constraint firstAttribute="height" constant="55" id="mVp-1e-MdM"/>
-                                            <constraint firstItem="C2O-M7-8Eh" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="xQ2-7u-Dia"/>
-                                            <constraint firstItem="zu7-I7-hFB" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="zSj-er-Nk1"/>
+                                            <constraint firstItem="C2O-M7-8Eh" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="FgV-rg-tu7"/>
+                                            <constraint firstAttribute="trailing" secondItem="C2O-M7-8Eh" secondAttribute="trailing" id="QAx-dh-bji"/>
+                                            <constraint firstItem="VQq-La-WrZ" firstAttribute="top" secondItem="K21-q3-TZg" secondAttribute="top" id="W2s-cr-TRP"/>
+                                            <constraint firstAttribute="trailing" secondItem="zu7-I7-hFB" secondAttribute="trailing" id="dAE-Bg-3cA"/>
+                                            <constraint firstAttribute="trailing" secondItem="VQq-La-WrZ" secondAttribute="trailing" id="jke-jU-Rlq"/>
+                                            <constraint firstItem="VQq-La-WrZ" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="kGk-ax-Jbz"/>
+                                            <constraint firstItem="ckl-rb-OPt" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="qPg-gf-VNF"/>
+                                            <constraint firstItem="zu7-I7-hFB" firstAttribute="leading" secondItem="K21-q3-TZg" secondAttribute="leading" id="rhd-Zf-Vjl"/>
+                                            <constraint firstAttribute="trailing" secondItem="ckl-rb-OPt" secondAttribute="trailing" id="yYF-Ox-AZy"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="8fa-pz-rrN" appends="YES" id="iFs-Yj-JrT"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oaM-Wa-5ud">
-                                        <rect key="frame" x="0.0" y="230" width="311" height="55"/>
+                                        <rect key="frame" x="0.0" y="269" width="311" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r8-Az-PBX">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="24"/>
@@ -321,6 +328,7 @@ to get started!</string>
                     </navigationItem>
                     <connections>
                         <outlet property="navigationBarTitle" destination="ErH-jh-SmL" id="Zx0-fc-qAb"/>
+                        <outlet property="proximityOptionControl" destination="ckl-rb-OPt" id="ACF-6a-Ath"/>
                         <outlet property="reminderEntryTextField" destination="DP0-6w-9ha" id="Ulp-Kq-aNk"/>
                         <outlet property="reminderLocationTextLabel" destination="zu7-I7-hFB" id="mIU-qH-Gtu"/>
                         <outlet property="reminderNotesTextField" destination="Io1-gr-oRB" id="4DB-7S-oyQ"/>
@@ -350,7 +358,7 @@ to get started!</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IwM-LU-SEf" id="gCZ-Xy-DVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ LOCATION NAME }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG3-tt-y4e">
